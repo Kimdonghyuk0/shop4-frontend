@@ -14,3 +14,6 @@ export const updateGoods = (goodsId, goods) =>
 
 export const deleteGoods = (goodsId) =>
 	axios.delete(REST_API_BASE_URL + '/' + goodsId);
+
+export const getGoodsByCategory = (category) =>
+	axios.get(`${REST_API_BASE_URL}/category/${category}`);

@@ -11,8 +11,9 @@ import {
 import { FaRegComment } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
+import { FaCommentSlash } from "react-icons/fa6";
 
-const Comments = ({ goods_id, member_id }) => {
+const Comments = ({ goods_id, member_id, canCommentCheck }) => {
   const [comment, setComment] = useState("");
   const [newComment, setNewComment] = useState({});
   const [commentsList, setCommentsList] = useState([]);
@@ -234,7 +235,7 @@ const Comments = ({ goods_id, member_id }) => {
         ))}
       </div>
 
-      {member_id ? ( // 로그인하면 댓글 등록 가능
+      {canCommentCheck ? ( // canCommentCheck가 true일 때 댓글 등록 가능
         <div className="comment-form">
           <input
             type="text"
@@ -251,7 +252,14 @@ const Comments = ({ goods_id, member_id }) => {
             등록
           </button>
         </div>
-      ) : null}
+      ) : (
+        <div className="comment-disabled-message">
+          <div className="comment-icon">
+            <FaCommentSlash />
+          </div>
+          해당 상품을 구매하셔야 댓글을 달 수 있습니다.
+        </div>
+      )}
     </div>
   );
 };

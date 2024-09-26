@@ -22,3 +22,6 @@ export const postLike = (commentId, memeberId) =>
 
 export const getLike = (commentId, memeberId) =>
   axios.get(REST_API_BASE_URL + "/like/" + commentId + "/" + memeberId);
+
+export const canComment = (memberId, goodsId) =>
+  axios.get(REST_API_BASE_URL + "/can-comment/" + memberId + "/" + goodsId);

@@ -9,6 +9,9 @@ export const createMember = (member) => axios.post(REST_API_BASE_URL, member);
 export const getMember = (memberId) =>
   axios.get(REST_API_BASE_URL + '/' + memberId);
 
+export const getMemberByUserId = (memberId) =>
+  axios.get(REST_API_BASE_URL + '/userId/' + memberId);
+
 export const updateMember = (memberId, member) =>
   axios.patch(REST_API_BASE_URL + '/' + memberId, member);
 

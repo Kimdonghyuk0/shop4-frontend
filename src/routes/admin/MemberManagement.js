@@ -30,10 +30,7 @@ function UserManagement() {
 								<td>{member.address}</td>
 								<td>{member.phone}</td>
 								<td>
-									<button
-										className="btn btn-primary"
-										onClick={() => {}}
-									>
+									<button className="btn btn-primary" onClick={() => {}}>
 										{' '}
 										관리
 									</button>

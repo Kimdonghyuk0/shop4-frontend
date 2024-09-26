@@ -1,0 +1,57 @@
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+}
+
+.successIcon {
+  font-size: 100px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.subMessage {
+  font-size: 18px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.buttonContainer {
+  margin-top: 30px;
+}
+
+.homeButton,
+.ordersButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.homeButton {
+  background-color: #007bff;
+  color: white;
+}
+
+.ordersButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.homeButton:hover,
+.ordersButton:hover {
+  opacity: 0.9;
+}

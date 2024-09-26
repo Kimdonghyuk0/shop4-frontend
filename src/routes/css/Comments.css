@@ -1,144 +1,160 @@
 /* Ensure full-width container with proper margins */
 .comments-section {
-    width: 80%;
-    max-width: 100%;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border: 1px solid #dbdbdb;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    box-sizing: border-box; /* Include padding in width */
+  width: 80%;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  box-sizing: border-box; /* Include padding in width */
 }
 .comment-date {
-    float: right;
-    font-size: 0.85rem;
-    color: gray;
+  float: right;
+  font-size: 0.85rem;
+  color: gray;
 }
 
-.like-box{
-    float: right;
-    font-size: 1.6rem;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    border: 1px solid #dbdbdb;
-    padding : 5px;
-    cursor: pointer;
+.like-box {
+  float: right;
+  font-size: 1.6rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dbdbdb;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .like-box.liked {
-    color: #ff4081; /* Color when liked */
+  color: #ff4081; /* Color when liked */
 }
 
 .comment-actions button {
-    background-color: rgb(248, 248, 248);
-    color: black;
-    border: none;
-    padding: 3px 6px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8em;
-    margin: 1.5px;
+  background-color: rgb(248, 248, 248);
+  color: black;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+  margin: 1.5px;
 }
 
 .update-actions button {
-    background-color: rgb(240, 240, 240);
-    color: black;
-    border: none;
-    padding: 3px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.8em;
-    margin: 2px;
+  background-color: rgb(240, 240, 240);
+  color: black;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  margin: 2px;
 }
 
 .update-actions button:hover {
-    background-color: rgb(230, 230, 230);
+  background-color: rgb(230, 230, 230);
 }
 
 .comment-actions button:hover {
-    /* background-color: rgb(230, 230, 230); */
-    background-color: #ff4081;
+  /* background-color: rgb(230, 230, 230); */
+  background-color: #ff4081;
 }
-
 
 /* Adjust list styling to fit full width */
 .comments-list {
-    max-height: 300px;
-    overflow-y: auto;  /* 세로 스크롤 가능 */
-    margin-bottom: 16px;
-    padding: 0;
+  max-height: 300px;
+  overflow-y: auto; /* 세로 스크롤 가능 */
+  margin-bottom: 16px;
+  padding: 0;
 }
 
 /* Style each comment */
 .comment-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 12px;
-    padding: 10px;
-    border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 .comment-avatar {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 
 .comment-avatar img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .comment-content {
-    flex: 1;
+  flex: 1;
 }
 
 .comment-username {
-    font-weight: bold;
-    margin-bottom: 4px;
+  font-weight: bold;
+  margin-bottom: 4px;
 }
 
 .comment-text {
-    font-size: 26px; /* 적당한 폰트 크기 설정 */
-    line-height: 1.5; /* 줄 간격 설정 */
-    color: #333; /* 글씨 색상 설정 */
-    font-family: 'Arial', sans-serif; /* 폰트 패밀리 설정 */
-    margin-top: 17px; /* 상단 여백 설정 */
+  font-size: 26px; /* 적당한 폰트 크기 설정 */
+  line-height: 1.5; /* 줄 간격 설정 */
+  color: #333; /* 글씨 색상 설정 */
+  font-family: "Arial", sans-serif; /* 폰트 패밀리 설정 */
+  margin-top: 17px; /* 상단 여백 설정 */
 }
-
 
 /* Style the form to fit full width */
 .comment-form {
-    display: flex;
-    align-items: center;
-    padding-top: 8px;
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
 }
 
 .comment-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #dbdbdb;
-    border-radius: 18px;
-    font-size: 20px;
-    outline: none;
-    margin-right: 8px;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 18px;
+  font-size: 20px;
+  outline: none;
+  margin-right: 8px;
 }
 
 .comment-input:focus {
-    border-color: #0095f6;
+  border-color: #0095f6;
 }
 
 .comment-submit-btn {
-    background-color: #0095f6;
-    color: #ffffff;
-    border: none;
-    border-radius: 18px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s;
+  background-color: #0095f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 18px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s;
 }
 
 .comment-submit-btn:hover {
-    background-color: #007bb5;
+  background-color: #007bb5;
+}
+
+.comment-disabled-message {
+  background-color: #d1ecf1; /* 부드러운 하늘색 배경 */
+  color: #0c5460; /* 어두운 하늘색 글자 */
+  border: 1px solid #bee5eb; /* 테두리 색상 */
+  padding: 10px; /* 여백 */
+  border-radius: 5px; /* 둥근 모서리 */
+  font-size: 25px; /* 글자 크기 */
+  display: flex; /* 플렉스 박스 사용 */
+  align-items: center; /* 수직 가운데 정렬 */
+  margin-top: 10px; /* 위쪽 마진 */
+}
+
+.comment-disabled-message .comment-icon {
+  margin-right: 10px; /* 아이콘과 텍스트 사이의 간격 */
+  font-size: 30px; /* 아이콘 크기 조정 */
+  color: #0c5460; /* 아이콘 색상 */
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { deleteGoods, listGoods } from '../../services/GoodsService';
+import { listGoods } from '../../services/GoodsService';
 import styles from './admincss/Admin.module.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -34,8 +34,12 @@ function GoodsManagement() {
 								<td>{item.stock}</td>
 								<td>{item.price}</td>
 								<td>
-									<button className="btn btn-primary">
-										{' '}
+									<button
+										className="btn btn-primary"
+										onClick={() => {
+											navigate('/admin/updategoods', { state: item.id });
+										}}
+									>
 										관리
 									</button>
 								</td>

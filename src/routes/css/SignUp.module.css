@@ -196,7 +196,7 @@
 
 /* 전체적인 버튼들 꾸미기 */
 .button {
-  background-color: #888888;
+  background-color: #c0c0c0;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -205,7 +205,7 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .button:hover {
-  background-color: #555555;
+  background-color: #606060;
   transform: scale(1.05);
   cursor: pointer;
 }

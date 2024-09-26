@@ -55,7 +55,10 @@ const Home = () => {
 	}, [state.search]);
 
 	return (
-		<div className="App">
+		<div
+			className="App"
+			style={{ backgroundColor: '#F7F2E0', height: '100%', minHeight: '100vh' }}
+		>
 			{searching ? <HomeSlider className=""></HomeSlider> : <></>}
 			<div className="container shoe-container">
 				<div className="row shoe-row">
@@ -63,11 +66,7 @@ const Home = () => {
 						return (
 							<div className="col-md-4 shoe-card" key={index}>
 								<figure className="snip1200">
-									<img
-										src={a.url}
-										alt={a.name}
-										className="shoe-image"
-									/>
+									<img src={a.url} alt={a.name} className="shoe-image" />
 									<figcaption>
 										<div className="heading">
 											<h2>{a.name}</h2>

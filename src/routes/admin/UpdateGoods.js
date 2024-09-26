@@ -1,12 +1,17 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import styles from './admincss/AddGoods.module.css';
 import { Toast, ToastContainer } from 'react-bootstrap';
-import { createGoods } from '../../services/GoodsService';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+	createGoods,
+	getGoods,
+	updateGoods,
+} from '../../services/GoodsService';
 
-function AddGoods() {
-	const imageUrl = process.env.PUBLIC_URL;
+function UpdateGoods() {
+	const location = useLocation();
+	let id = location.state;
+	let [item, setItem] = useState([]);
 
 	let [name, setName] = useState('');
 	let [price, setPrice] = useState('');
@@ -14,39 +19,26 @@ function AddGoods() {
 	let [stock, setStock] = useState('');
 	let [url, setUrl] = useState('');
 	let [category, setCategory] = useState('');
-	const [files, setFiles] = useState([]);
-
-	//일단 여기부터 uploadFiles는 없는셈 치세요
-	const handleFilesChange = (e) => {
-		setFiles(Array.from(e.target.files));
-	};
-
-	const uploadFiles = (e) => {
-		if (!files) {
-			return;
-		}
-		e.preventDefault();
-		const formData = new FormData();
-		files.map((file) => {
-			formData.append('files', file);
-		});
-
-		axios
-			.post(`${imageUrl}/upload`, formData, {
-				headers: {
-					'Content-Type': 'multipart/form-data',
-				},
-			})
-			.then((res) => {
-				console.log(res.data);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	};
 
 	let [toast, setToast] = useState(false);
 	let navigate = useNavigate();
+
+	useEffect(() => {
+		const setGoods = async () => {
+			await getGoods(id).then((response) => {
+				setItem(response.data);
+				setName(response.data.name);
+				setPrice(response.data.price);
+				setDescription(response.data.description);
+				setStock(response.data.stock);
+				setCategory(response.data.category);
+				setUrl(response.data.url);
+			});
+		};
+
+		setGoods();
+		console.log(item);
+	}, [id]);
 
 	function validateAndSubmit() {
 		if (
@@ -64,11 +56,13 @@ function AddGoods() {
 				stock: stock,
 				description: description,
 				category: category,
-				url: 'tmp',
+				url: url,
 			};
-			// Submit newItem to the backend or handle it as needed << Who wrote this beautiful English ?
-			createGoods(newItem);
-			navigate('/');
+
+			console.log(newItem);
+
+			updateGoods(id, newItem);
+			navigate(-1);
 		}
 	}
 
@@ -82,13 +76,22 @@ function AddGoods() {
 					<tr>
 						<td>상품명</td>
 						<td>
-							<input type="text" onChange={(e) => setName(e.target.value)} />
+							<input
+								type="text"
+								onChange={(e) => setName(e.target.value)}
+								on
+								defaultValue={item.name}
+							/>
 						</td>
 					</tr>
 					<tr>
 						<td>가격</td>
 						<td>
-							<input type="text" onChange={(e) => setPrice(e.target.value)} />
+							<input
+								type="text"
+								onChange={(e) => setPrice(e.target.value)}
+								defaultValue={item.price}
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -97,13 +100,18 @@ function AddGoods() {
 							<input
 								type="text"
 								onChange={(e) => setDescription(e.target.value)}
+								defaultValue={item.description}
 							/>
 						</td>
 					</tr>
 					<tr>
 						<td>재고수</td>
 						<td>
-							<input type="text" onChange={(e) => setStock(e.target.value)} />
+							<input
+								type="text"
+								onChange={(e) => setStock(e.target.value)}
+								defaultValue={item.stock}
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -112,19 +120,18 @@ function AddGoods() {
 							<input
 								type="file"
 								className={styles.fileInput}
-								onChange={(e) => {
-									handleFilesChange(e);
-									if (e.target.files[0]) {
-										setUrl(`${imageUrl}/${e.target.files[0].name}`);
-									}
-								}}
+								onChange={(e) => {}}
+								defaultValue={item.url}
 							/>
 						</td>
 					</tr>
 					<tr>
 						<td>카테고리</td>
 						<td>
-							<select onChange={(e) => setCategory(e.target.value)}>
+							<select
+								onChange={(e) => setCategory(e.target.value)}
+								defaultValue={item.category}
+							>
 								<option value={'shoes'}>신발</option>
 								<option value={'top'}>상의</option>
 								<option value={'bottom'}>하의</option>
@@ -138,13 +145,20 @@ function AddGoods() {
 				<button
 					className={styles.addButton}
 					onClick={(e) => {
+						console.log();
 						validateAndSubmit();
 					}}
 				>
-					등록하다
+					갱신하다
 				</button>
 				<button className={styles.cancelButton} onClick={() => navigate('/')}>
 					돌아가다
+				</button>
+				<button
+					className={`btn btn-danger ${styles.deleteButton}`}
+					//onClick={() => navigate('/')}
+				>
+					삭제하다
 				</button>
 			</div>
 			<ToastContainer className={styles.toastContainer} position="bottom-end">
@@ -168,4 +182,4 @@ function AddGoods() {
 	);
 }
 
-export default AddGoods;
+export default UpdateGoods;

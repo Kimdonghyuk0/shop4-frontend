@@ -1,0 +1,66 @@
+/* MyCoupons.module.css */
+.myPageContainer {
+  display: flex;
+  margin: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.rightContent {
+  flex: 1;
+  margin-left: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+.couponTabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.couponTabs button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.couponTabs button.active {
+  background-color: #3700b3;
+}
+
+.couponList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.couponList li {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s;
+  display: flex;
+  justify-content: space-between; /* 쿠폰명과 추가 정보를 좌우 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+.couponList li:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.couponCount {
+  font-weight: bold;
+}
+
+.couponInfo {
+  font-size: 14px;
+  color: #666; /* 추가 정보 색상 */
+}

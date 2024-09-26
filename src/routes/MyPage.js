@@ -1,12 +1,12 @@
 import "./css/MyPage.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyPageLeftSideBar from "../components/MyPageLeftSideBar.js";
-import MyPageSection1 from "./myPage/MyPageSection1.js";
-import MyPageSection2 from "./myPage/MyPageSection2.js";
-import MyPageSection3 from "./myPage/MyPageSection3.js";
+import MyPageSection1 from "../components/myPage/MyPageSection1.js";
+import MyPageSection2 from "../components/myPage/MyPageSection2.js";
+import MyPageSection3 from "../components/myPage/MyPageSection3.js";
 
 const MyPage = () => {
   const userSession = JSON.parse(sessionStorage.getItem("user")); // 세션에서 사용자 이	름 가져오기

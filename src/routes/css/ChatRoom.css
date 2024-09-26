@@ -1,0 +1,88 @@
+/* ChatRoom.css */
+
+.chatRoomContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+ 
+}
+
+.messagesContainer {
+  flex: 1;
+  padding: 10px;
+  padding-bottom: 150px; /* 하단에 여백 추가 */
+  overflow-y: auto;
+}
+
+
+.messageItem {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.messageItem.sent {
+  flex-direction: row-reverse;
+}
+
+.messageItem.received {
+  flex-direction: row;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.messageContent {
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+.senderName {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.messageText {
+  background-color: #f1f0f0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.messageItem.sent .messageText {
+  background-color: #dcf8c6;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: gray;
+  margin-top: 5px;
+}
+
+.messageInputContainer {
+  display: flex;
+  padding: 10px;
+  width: 70%; /* 입력 필드의 가로 길이 설정 */
+  border-top: 1px solid #ddd;
+  margin: 0 auto; /* 가로로 가운데 정렬 */
+  position: fixed; /* 하단 고정 */
+  bottom: 0; /* 화면의 하단에 위치 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translateX(-50%); /* 중앙으로 이동 */
+  background-color: white; /* 배경색 설정 */
+  z-index: 100; /* 다른 요소보다 위에 위치 */
+}
+
+.messageInputContainer input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+
+}
+
+.messageInputContainer button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
